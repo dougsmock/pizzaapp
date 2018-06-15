@@ -1,21 +1,9 @@
-#function random pizzas
-#see a string of pizza elements in console
-#a new type of pizzas
-#NAME METHOD for each components meats, crust, size, veggies,
-#specialty toppings, #one for sauce
-#each calls master function, RANDOMLY pulls from every array ...
-#DON'T USE classes.
-
-
-
-
-#string of categories
-#size 10, 14, 18
-#veggies none, onions mushrooms, green peppers
-#meats none, pepperoni, sausage, ham
-#sauces none, tomato alfredo
-#crust thin regular thick
-#cheese none, regular, double 4_cheese
+#NOW ... let the customer order and put prices on the sizes and toppings.
+#ask for delivery or carryout
+#Stick a price on delivery.
+#ask for a tip.
+#total up the prices.
+#make a repeat module for screw-up
 
 size = ["10-inch", "14-inch", "18-inch"]
 crust = ["thin", "regular", "thick"]
@@ -24,8 +12,11 @@ cheeses = ["no cheese", "regular cheese", "double cheese", "4 cheese"]
 veggies = ["no veggies", "onions", "mushrooms", "green peppers"]
 meats = ["no meats", "pepperoni", "sausage", "ham"]
 
+
+
+
+
 def order(size, crust, sauces, cheeses, veggies, meats)
-  size.sample
   crust.sample
   sauces.sample
   cheeses.sample
@@ -39,12 +30,30 @@ def delivery()
   puts "Your order will be to you in 40 minutes.\n"
 end
 
+
+
+
 puts "Welcome to Dougie's pizza. How many pizzas today?"
   number_pizzas = gets.chomp.to_i
+
   i = 0
+
 while i < number_pizzas
+  puts "What size would you like, 10, 14 or 18 inches?"
+  size = gets.chomp.to_i
+  if size == 10
+    size = "10-inch"
+  elsif size == 14
+    size = "14-inch"
+  elsif size == 18
+    size = "18-inch"
+  else
+    puts "Sorry, but we can't do that."
+    exit(0)
+  end
+
   order(size, crust, sauces, cheeses, veggies, meats)
-    puts "Pizza No. #{i + 1} includes #{size.sample} crust,"
+    puts "Pizza No. #{i + 1} includes #{size} crust,"
     puts "#{crust.sample} crust, #{sauces.sample} sauce,"
     puts "#{cheeses.sample}, #{veggies.sample}, and #{meats.sample}.\n\n"
     i += 1
