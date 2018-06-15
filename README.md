@@ -1,9 +1,8 @@
 # pizzaapp
-from June 13, 2018
-In this app, we asked the customer now many pizzas he wants, and then toppings are randomly selected, one from each of six categories.
+From June 13, 2018.
 
-I learned how to set up an array, and the .sample method of randomly selecting an element from that array. Later, we were assigned to take a user-generator order and figure out the price and other details.
+In this app, we asked the customer now many pizzas he wants, and then had him select one of three crusts, and pick from an array of toppings.
 
-The status, as of 9:55 p.m. on June 14: I accept 3 different sizes and 3 different crusts (no charge). 
+I learned the .sample function, though I have removed that from this version. That could be restored for the delivery time, as was suggested.
 
-My next tasks are to compute prices based on sizes and toppings, also adding delivery charges and state taxes.
+One goal is to output the customer's order and handle the different demands of delivery vs. carryout, and to compute the total price (including sales tax, delivery fee and tip).
