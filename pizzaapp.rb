@@ -1,10 +1,3 @@
-#NOW ... let the customer order and put prices on the sizes and toppings.
-#ask for delivery or carryout
-#Stick a price on delivery.
-#ask for a tip.
-#total up the prices.
-#make a repeat module for screw-up
-
 size = ["10-inch", "14-inch", "18-inch"]
 crust = ["thin", "regular", "thick"]
 sauces = ["no", "tomato", "alfredo"]
