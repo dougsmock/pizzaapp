@@ -1,64 +1,87 @@
-size = ["10-inch", "14-inch", "18-inch"]
+# declaring some variables
+
+size = [10, 14, 18]
 crust = ["thin", "regular", "thick"]
-sauces = ["no", "tomato", "alfredo"]
-cheeses = ["no cheese", "regular cheese", "double cheese", "4 cheese"]
-veggies = ["no veggies", "onions", "mushrooms", "green peppers"]
-meats = ["no meats", "pepperoni", "sausage", "ham"]
+toppings = ["double cheese", "4 cheese", "onions", "mushrooms", "green peppers", "pepperoni", "sausage", "ham"]
 
+#Delivery function. No seperate function on carryout, which is easier.
 
-
-
-
-def order(size, crust, sauces, cheeses, veggies, meats)
-  crust.sample
-  sauces.sample
-  cheeses.sample
-  veggies.sample
-  meats.sample
-end
-
-def delivery()
+def delivery(price)
+  puts "What is your address?"
   address = gets.chomp.to_s
   puts "That's #{address}, right?"
-  puts "Your order will be to you in 40 minutes.\n"
+  sales_tax = 0.06
+  delivery_charge = 1.95
+  puts "Add a tip, if you wish."
+  tip = gets.chomp.to_f
+  price = price + (price * sales_tax) + delivery_charge + tip
+  puts "Your total will be \$#{price}, and"
+  puts "your order will be to your door in 40 minutes.\n"
 end
 
 
+####starting point
 
-
-puts "Welcome to Dougie's pizza. How many pizzas today?"
+puts "Welcome to Doug's Pizza. How many pizzas today?"
   number_pizzas = gets.chomp.to_i
 
   i = 0
+  total_price = 0.00
 
-while i < number_pizzas
+while i < number_pizzas #We select each individual pizza.
+  puts "Pizza No. #{i + 1}:"
   puts "What size would you like, 10, 14 or 18 inches?"
   size = gets.chomp.to_i
-  if size == 10
-    size = "10-inch"
-  elsif size == 14
-    size = "14-inch"
-  elsif size == 18
-    size = "18-inch"
-  else
-    puts "Sorry, but we can't do that."
-    exit(0)
-  end
+    if size == 10
+      total_price = total_price + 4.99
+    elsif size == 14
+      total_price = total_price + 8.99
+    elsif size == 18
+      total_price = total_price + 12.99
+    end
 
-  order(size, crust, sauces, cheeses, veggies, meats)
-    puts "Pizza No. #{i + 1} includes #{size} crust,"
-    puts "#{crust.sample} crust, #{sauces.sample} sauce,"
-    puts "#{cheeses.sample}, #{veggies.sample}, and #{meats.sample}.\n\n"
-    i += 1
-end
+    puts "#{crust[0]}, #{crust[1]}, or #{crust[2]} crust?\n"
+    crust_pick = gets.chomp.to_s
+
+    top_price = 1.49
+    tops_number = 0
+    puts "What toppings would you like?:\n"
+
+    toppings.each do |topping|
+      #tops_selected = [] trying to push items into an array.
+      puts "#{topping}? (y/n)\n"
+      y_or_n = gets.chomp.to_s
+        if y_or_n == "y"
+    #      tops_selected.push(topping)
+          tops_number += 1
+      end
+
+    end
+
+    total_price = total_price + (top_price * tops_number)
+    puts "Pizza No. #{i + 1}"
+    puts "#{size} inch"
+    puts "#{crust_pick} crust"
+  #  puts tops_selected.each #How do I output arrays?
+    puts "Subtotal: \$#{total_price}"
+  i += 1
+
+end #end of big while loop, what stays in.
+
+
 
 puts "delivery or carryout? (type d or c)"
   d_or_c = gets.chomp.to_s
   if d_or_c == "d"
-    puts "What is your address?"
-    delivery()
+    delivery(total_price)
   elsif d_or_c == "c"
+    sales_tax = 0.06
+    total_price = total_price + (total_price * sales_tax)
+    puts "Your total will be \$#{total_price}"
     puts "It will be ready in 15 minutes."
   else
     puts "You may pick up your order in 15 minutes."
   end
+
+
+  #Another question: How do you round to two decimal points?
