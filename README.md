@@ -1,8 +1,6 @@
 # pizzaapp
-From June 13, 2018.
+From June 13, 2018, with later improvments.
 
-In this app, we asked the customer now many pizzas he wants, and then had him select one of three crusts, and pick from an array of toppings.
+In this app, we ask the customer now many pizzas he wants, and have select one of four crusts, and then pick from an array of toppings and add special requests.
 
-I learned the .sample function, though I have removed that from this version. That could be restored for the delivery time, as was suggested.
-
-One goal is to output the customer's order and handle the different demands of delivery vs. carryout, and to compute the total price (including sales tax, delivery fee and tip).
+The goals are to output customer's order and handle the different demands of delivery vs. carryout, and to compute the total price (including sales tax, delivery fee and tip). The subtotal is given after every pizza, which also helps to 
