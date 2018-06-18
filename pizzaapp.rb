@@ -14,10 +14,10 @@ def delivery(price)
   tip = gets.chomp.to_f
   price = price + (price * sales_tax) + delivery_charge + tip
   price = price.round(2)
+  time = rand(20 .. 50)
   puts "Your total will be \$#{price}, and"
-  puts "your order will be to your door in 40 minutes.\n"
+  puts "your order will be to your door in #{time} minutes.\n"
 end
-
 
 ####starting point
 
