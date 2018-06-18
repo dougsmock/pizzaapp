@@ -9,14 +9,16 @@ def delivery(price)
   address = gets.chomp.to_s
   puts "That's #{address}, right?"
   sales_tax = 0.06
+  sales_tax_total = price * sales_tax
+  puts "Sales tax: #{sales_tax_total.round(2)}"
   delivery_charge = 1.95
   puts "Add a tip, if you wish."
   tip = gets.chomp.to_f
-  price = price + (price * sales_tax) + delivery_charge + tip
+  price = price + sales_tax_total + delivery_charge + tip
   price = price.round(2)
   time = rand(20 .. 50)
-  puts "Your total will be \$#{price}, and"
-  puts "your order will be to your door in #{time} minutes.\n"
+  puts "Your total will be \$#{price}."
+  puts "Your order will be to your door in #{time} minutes.\n"
 end
 
 ####starting point
@@ -82,8 +84,10 @@ puts "delivery or carryout? (type d or c)"
     delivery(total_price)
   elsif d_or_c == "c"
     sales_tax = 0.06
+    sales_tax_total = total_price * sales_tax
     total_price = total_price + (total_price * sales_tax)
     total_price = total_price.round(2)
+    puts "Sales tax: #{sales_tax_total.round(2)}"
     puts "Your total will be \$#{total_price}"
     puts "It will be ready in 15 minutes."
   else
